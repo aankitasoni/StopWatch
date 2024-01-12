@@ -1,4 +1,4 @@
-# stop_watch
+# Stop Watch
 
 A new Flutter project.
 
