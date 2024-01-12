@@ -50,6 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void deleteLapses(){
+    setState(() {
+      laps.clear();
+    });
+  }
+
   // start timer function
   void start() {
     started = true;
@@ -79,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
         });
       },
     );
-    // if (started) {}
   }
 
   @override
@@ -92,15 +97,26 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Center(
-                child: Text(
-                  "StopWatch App",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Stop",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 33,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  Text(
+                    "Watch",
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 33,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 20,
@@ -161,7 +177,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     buttonText: (!started) ? "Start" : "Pause",
                     onPressed: () {
                       (!started) ? start() : stop();
-                    },
+                    }, 
+                    color: (!started) ? Colors.pink.shade300 : Colors.orangeAccent,
                   ),
                   const SizedBox(
                     width: 8,
@@ -172,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     icon: const Icon(
                       Icons.flag,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(
@@ -182,7 +199,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     buttonText: 'Reset',
                     onPressed: () {
                       reset();
-                    },
+                      deleteLapses();
+                    }, color: Colors.greenAccent,
                   ),
                 ],
               )
