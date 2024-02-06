@@ -11,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   // logic of the app
   int seconds = 0, minutes = 0, hours = 0;
   String digitSeconds = "00", digitMinutes = "00", digitHours = "00";
@@ -50,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void deleteLapses(){
+  void deleteLapses() {
     setState(() {
       laps.clear();
     });
@@ -121,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20,
               ),
-               Center(
+              Center(
                 child: Text(
                   "$digitHours:$digitMinutes:$digitSeconds",
                   style: const TextStyle(
@@ -177,8 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     buttonText: (!started) ? "Start" : "Pause",
                     onPressed: () {
                       (!started) ? start() : stop();
-                    }, 
-                    color: (!started) ? Colors.pink.shade300 : Colors.orangeAccent,
+                    },
+                    color:
+                        (!started) ? Colors.pink.shade300 : Colors.orangeAccent,
                   ),
                   const SizedBox(
                     width: 8,
@@ -200,7 +200,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       reset();
                       deleteLapses();
-                    }, color: Colors.greenAccent,
+                    },
+                    color: Colors.greenAccent,
                   ),
                 ],
               )
